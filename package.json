@@ -1,7 +1,7 @@
 {
   "name": "cors",
   "description": "Node.js CORS middleware",
-  "version": "2.8.5",
+  "version": "2.8.6",
   "author": "Troy Goode <troygoode@gmail.com> (https://github.com/troygoode/)",
   "license": "MIT",
   "keywords": [
@@ -12,8 +12,12 @@
   ],
   "repository": "expressjs/cors",
   "main": "./lib/index.js",
+  "module": "index.mjs",
   "dependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "object-assign": "^4",
+    "rollup": "^2.52.7",
     "vary": "^1"
   },
   "devDependencies": {
@@ -35,6 +39,7 @@
     "node": ">= 0.10"
   },
   "scripts": {
+    "build": "npx rollup -c",
     "test": "npm run lint && npm run test-ci",
     "test-ci": "nyc --reporter=html --reporter=text mocha --require test/support/env",
     "lint": "eslint lib test"
